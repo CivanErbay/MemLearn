@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="31515d2e-8c1c-4b0c-9968-40133d2fc31c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/target/classes/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/target/classes/memlearn/backend/BackendApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/target/classes/memlearn/backend/controller/MemController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/target/classes/memlearn/backend/model/MemCard.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/target/test-classes/memlearn/backend/BackendApplicationTests.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1dX3BDAmlZtGwK1gCluoaAPxth4" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="31515d2e-8c1c-4b0c-9968-40133d2fc31c" name="Default Changelist" comment="" />
+      <created>1592557472946</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1592557472946</updated>
+      <workItem from="1592557475402" duration="34827000" />
+      <workItem from="1592811873924" duration="1134000" />
+      <workItem from="1593167179943" duration="2458000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="304" y="187" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592560094082">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="304" y="187" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1592560094082" />
+    <state x="547" y="325" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1592740839011">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="547" y="325" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1592740839011" />
+    <state width="600" height="440" key="javadoc.popup" timestamp="1592576837603">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="600" height="440" key="javadoc.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1592576837603" />
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1592647555832">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1592647555832" />
+  </component>
+</project>
