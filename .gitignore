@@ -33,4 +33,4 @@ build/
 /backend/src/main/resources/static/**
 /backend/src/main/resources/static/*
 
-node_modules
+/memlearn/node_modules

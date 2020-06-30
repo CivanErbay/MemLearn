@@ -43,10 +43,12 @@ export default function CenteredGrid() {
 
         if (trueCount >= 2 ) {
             alert("Only 2 flipped cards at a time")
-            for (let i = 0; i < vocabs.length; i++) {
+    /*        for (let i = 0; i < vocabs.length; i++) {
                 vocabs[i].flipState = false;
-            }
-            setVocabs(vocabs)
+            }*/
+            setVocabs(vocabs.map((vocab)=> ({
+                ...vocab, flipState: false
+            })))
             return
         }
 
