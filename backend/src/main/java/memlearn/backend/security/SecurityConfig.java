@@ -22,6 +22,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         this.userDetailsService = userDetailsService;
     }
 
+    //configure zieht sich "auth" (vom Fronend?) in dem Format AuthenticationManagerBuilder.
+    //Auf "auth" aus dem input wird userDetailsService aus dem MongoDbUserDetailsService aufgerufen.
+    //Warum userDetailservice in userDetailService?
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService);

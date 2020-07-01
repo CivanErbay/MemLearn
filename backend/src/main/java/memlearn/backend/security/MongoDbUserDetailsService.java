@@ -16,8 +16,10 @@ import java.util.Optional;
 @Service
 public class MongoDbUserDetailsService implements UserDetailsService {
 
+    //Userdb wird eingebunden und damit die Verbindung zur Datenbank hergestellt!
     private final UserDb userDb;
 
+    //Konstruktor
     @Autowired
     MongoDbUserDetailsService(UserDb userDb) {
         this.userDb = userDb;
@@ -27,13 +29,17 @@ public class MongoDbUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
+        //Aus der Datenbank (userDb.findById) wird mithilfe des inputs (String username) beim Aufruf der Methode loadUserByUsername(..)
+        //der User mit dem username aus dem input-Feld aufgerufen und im Optional<PlanningUser> optionalUser gespeichert.
         Optional<PlanningUser> optionalUser = userDb.findById(username);
         if (optionalUser.isEmpty()) {
             throw new UsernameNotFoundException("user with username: \"" + username + "\" not found");
         }
 
+        //aus dem optionalUser (Typ Optional<PlanningUser> s. Zeile 30) wird mit .get() einer user vom Type PlanningUser (nicht mehr Optional)
         PlanningUser testUser = optionalUser.get();
 
+        //neuer User wird erstellt und returned in dem Format Userdetails (s. Zeile 28)
         return new User(username, testUser.getPassword(), List.of(new SimpleGrantedAuthority(testUser.getRole())));
     }
 }
