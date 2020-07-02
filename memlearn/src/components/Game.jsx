@@ -33,6 +33,7 @@ export default function CenteredGrid() {
 
     const [vocabs, setVocabs] = useState([])  //setze den useState mit den Daten aus fetchVocabs()
     const [count, setCount] = useState(0)
+    const [networkState, setNetworkState] = useState("IDLE")
 
     // die handleFlip Methode wird zwar hier im Parent-Element definiert (Game.jsx) wird aber im Child-Element aufgerufen (SimpleCard.jsx)
     const handleFlip = id => {           //Je nachdem welche Karte aufgerufen wird, wird die id vergeben (da jede Karte eine eindeutige id aufweist)
@@ -40,18 +41,13 @@ export default function CenteredGrid() {
         for (let i = 0 ;i < vocabs.length; i++) {
             vocabs[i].flipState && trueCount ++
         }
-
         if (trueCount >= 2 ) {
             alert("Only 2 flipped cards at a time")
-    /*        for (let i = 0; i < vocabs.length; i++) {
-                vocabs[i].flipState = false;
-            }*/
-            setVocabs(vocabs.map((vocab)=> ({
-                ...vocab, flipState: false
+            setVocabs(vocabs.map((vocab)=> ({  // Hier wird NICHT der State direkt verändert (vocabs) sondern ein neuer
+                ...vocab, flipState: false      //Array erzeugt (.map) und dieser gesettet
             })))
             return
         }
-
         const updatedVocabs = vocabs.map(vocab => {// es wird über vocabs gemapped und nur die Karte, auf die man gedrückt hat wird der flipState verändert, mithilfe des id-Abgleichs
             if (vocab.id === id)                       // der veränderte Wert wird als Array zurückgeben (aufgrund von .map()), d.h. der Array ist bis auf eine Stelle gleich
             {vocab.flipState = !vocab.flipState}
@@ -62,11 +58,21 @@ export default function CenteredGrid() {
 
     // diese useEffect wird ausgeführt vor dem Rendern und nur EINMALIG
     useEffect(async () => {  //fetchVocabs in Kombination mit useEffect zieht sich alle Daten beim ersten Rendern
-        let vocabs = await fetchVocabs()    //speichert alles in vocabs
-        vocabs = vocabs.map(v => {          // mappt über jedes Element in vocabs
-            return {...v, flipState: false} // "unwrapped" jedes einzelne Element UND addet eine weitere Property: flipstate mit Initialwert false
-        })
-        setVocabs(vocabs)                   //ruft die Methode setVocabs von useState auf (zeile 23) und addet die gefetchten Daten (welche mit flipState erweitert wurden)
+        setNetworkState("LOADING")
+        fetchVocabs().then(response => {
+            if (response) {
+               const newVocabs = response.map(v => {          // mappt über jedes Element in vocabs
+                    return {...v, flipState: false} // "unwrapped" jedes einzelne Element UND addet eine weitere Property: flipstate mit Initialwert false
+                })
+                setVocabs(newVocabs)
+                setNetworkState("SUCCESS")
+            }
+            else {
+                setNetworkState("ERROR")
+            }
+        }).catch(() => setNetworkState("ERROR"))
+
+                          //ruft die Methode setVocabs von useState auf (zeile 23) und addet die gefetchten Daten (welche mit flipState erweitert wurden)
     },[])                             // [] läuft nur einmal beim Start/ersten Render
 
 
@@ -85,6 +91,8 @@ export default function CenteredGrid() {
 
     return (
         <div className={classes.root}>
+
+            {/* Matching Pairs Counter*/}
             <div className={classes.paper}>
                 <Paper elevation={3} children={count} />
             </div>
@@ -92,11 +100,20 @@ export default function CenteredGrid() {
 {/*
             funktionierendes MUI - Grid (1. wrapping Grid Container, 2. Grid item (dynamisch erzeugt), 3. jeweiliges Element)
 */}
-            <Grid container spacing={3}>
+
+            {networkState === "LOADING" && <div >
+                Loading...
+            </div>}
+
+            {networkState === "ERROR" && <div >
+                ERROR
+            </div>}
+
+            {networkState === "SUCCESS" && <Grid container spacing={3}>
 
                 {vocabs.map(vocab => <Grid item xs><SimpleCard vocab={vocab} handleFlip={handleFlip}/> </Grid> )
                     }
-            </Grid>
+            </Grid>}
 
         </div>
     );

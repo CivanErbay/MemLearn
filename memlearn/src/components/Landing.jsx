@@ -4,7 +4,9 @@ import Nav from "./Nav";
 import Home from "./Home";
 import Game from "./Game";
 import About from "./About"
-import {Route,Switch} from "react-router-dom";
+import {Link, Route, Switch} from "react-router-dom";
+import LoginPage from "./LoginPage";
+import PrivateRoute from "./PrivateRoute";
 
 export default function Landing() {
 
@@ -23,11 +25,15 @@ export default function Landing() {
         >
         <Switch>
 
-            <Route path="/learn">
-                <Game/>
-            </Route>
+
+
+
+            <PrivateRoute path="/learn" component={<Game/>}/>
             <Route path="/about">
                 <About/>
+            </Route>
+            <Route path="/login">
+                <LoginPage/>
             </Route>
             <Route path="/">
                 <Home/>
